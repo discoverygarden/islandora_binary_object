@@ -5,6 +5,8 @@
  * Installs required things for islandora_binary_object.
  */
 
+use Drupal\Core\Database\Database;
+
 /**
  * Implements hook_install().
  */
@@ -19,6 +21,9 @@ function islandora_binary_object_install() {
  * Implements hook_schema().
  */
 function islandora_binary_object_schema() {
+  // @see https://www.drupal.org/project/drupal/issues/1148856
+  $pgsql = Database::getConnection()->driver() == 'pgsql';
+
   $schema = [];
   $schema['islandora_binary_object_thumbnail_associations'] = [
     'description' => 'Stores fids and the association id they are associated with',
@@ -55,17 +60,8 @@ function islandora_binary_object_schema() {
       ],
     ],
     'unique keys' => [
-      'mimetype' => [['mimetype', 191]],
+      'mimetype' => $pgsql ? ['mimetype'] : [['mimetype', 191]],
     ],
   ];
   return $schema;
-}
-
-/**
- * Implements hook_update_N().
- *
- * Installs the database schema for thumbnail mappings.
- */
-function islandora_binary_object_update_7100() {
-  drupal_install_schema('islandora_binary_object');
 }
