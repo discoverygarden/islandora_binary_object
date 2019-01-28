@@ -65,12 +65,3 @@ function islandora_binary_object_schema() {
   ];
   return $schema;
 }
-
-/**
- * Implements hook_update_N().
- *
- * Installs the database schema for thumbnail mappings.
- */
-function islandora_binary_object_update_7100() {
-  drupal_install_schema('islandora_binary_object');
-}
