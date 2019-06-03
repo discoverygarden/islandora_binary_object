@@ -2,4 +2,4 @@ islandora_binary_object.admin:
   route_name: islandora_binary_object.admin
   parent: islandora.tools_admin
   title: 'Binary Object Collection'
-  description: 'Configure settings for Islandora Binary Object'
+  description: 'Configure settings for Islandora Binary Object.'
