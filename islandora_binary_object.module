@@ -141,3 +141,42 @@ function islandora_binary_object_islandora_binaryobjectcmodel_islandora_derivati
     ],
   ];
 }
+
+/**
+ * Implements hook_help().
+ */
+function islandora_binary_object_help($route) {
+  switch ($route) {
+    // Main help page for the module.
+    case 'help.page.islandora_binary_object':
+      // About section.
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t(
+        'The Islandora Binary Solution Pack provides a collection to store any
+        kind of file. There are no viewers for said files, but the files can be
+        downloaded for local viewing. The Binary Object Collection is essentially
+        a storage collection for file types that are not covered by other solution
+        packs.'
+      ) .
+      '</p>';
+      // Uses section.
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dt>' . t('Upload Binary Objects') . '</dt><dd>' . t(
+        'In the "Manage" tab of the Binary Object Collection, click "Add an
+        object to this Collection", and follow the ingest form.'
+      ) .
+      '</dd>';
+      $output .= '<dt>' . t('Download Binary Objects') . '</dt><dd>' . t(
+        'There are two ways to download a binary object from your website:
+        1. You can navigate to the View tab for the desired object
+        and click the provided download link.
+        2. You can go to the "Manage" tab of your desired object, click on the
+        "Datastreams" section and, click "Download" next to the OBJ datastream.'
+      ) .
+      '</dd>';
+
+      return $output;
+
+    // Other cases can be added for various admin pages.
+  }
+}
