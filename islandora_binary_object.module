@@ -163,7 +163,5 @@ function islandora_binary_object_help($route) {
       '</dd>';
 
       return $output;
-
-    // Other cases can be added for various admin pages.
   }
 }
