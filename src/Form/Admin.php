@@ -312,7 +312,7 @@ class Admin extends FormBase {
           }
         }
         db_delete('islandora_binary_object_thumbnail_mappings')
-          ->condition('mimetype', $remove_db)
+          ->condition('mimetype', $remove_db, 'IN')
           ->execute();
       }
       // Now let's add everything.
