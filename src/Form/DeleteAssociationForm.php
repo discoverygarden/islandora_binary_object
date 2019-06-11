@@ -104,7 +104,7 @@ class DeleteAssociationForm extends ConfirmFormBase {
     $file = $this->fileEntityStorage->load($this->fileId);
     $file_name = $file->getFilename();
     $file->delete();
-    drupal_set_message(t('The association for @filename has been deleted!', [
+    drupal_set_message($this->t('The association for @filename has been deleted!', [
       '@filename' => $file_name,
     ]));
     $form_state->setRedirect("islandora_binary_object.admin");
